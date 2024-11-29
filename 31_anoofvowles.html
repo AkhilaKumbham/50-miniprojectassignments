@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowles of string</title>
+</head>
+<body>
+    <script>
+        function countVowelsInString(inputString) {
+    let vowels = 'aeiouAEIOU';
+    let count = 0;
+
+    for (let char of inputString) {
+        if (vowels.includes(char)) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+let dynamicInput = prompt("Enter a string:");
+let vowelCount = countVowelsInString(dynamicInput);
+document.write("Number of vowels:", vowelCount);
+
+    </script>
+</body>
+</html>

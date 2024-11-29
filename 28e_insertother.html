@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert String</title>
+</head>
+<body>
+    <script>
+    function insertStringAtPosition() {
+        const mainString = prompt("Enter the main string:");
+        const insertString = prompt("Enter the string to insert:");
+        const insertPosition = parseInt(prompt("Enter the position to insert the string (0-based index):"), 10);
+
+        if (!mainString || mainString.trim() === "" || !insertString || insertString.trim() === "" || isNaN(insertPosition) || insertPosition < 0 || insertPosition > mainString.length) {
+            document.write("Invalid input! Please provide valid strings and position.");
+            return;
+        }
+
+        const updatedString = mainString.slice(0, insertPosition) + " " + insertString + " " + mainString.slice(insertPosition);
+        document.write("Updated String: " + updatedString.trim());
+    }
+    insertStringAtPosition();
+    </script>   
+</body>
+</html>

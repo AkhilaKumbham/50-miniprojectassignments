@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #content {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        nav {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e0f7fa;
+            border: 1px solid #00796b;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Manipulation Example</h1>
+    
+    <!-- Buttons to trigger actions -->
+    <button onclick="createParagraph()">Create Paragraph</button>
+    <button onclick="createLinks()">Create Google and Yahoo Links</button>
+    <button onclick="createStrong()">Create Strong Paragraph</button>
+
+    <div id="content">
+        <!-- Elements will be dynamically added here -->
+    </div>
+
+    <script>
+        // Reference to the parent element
+        const parentNode = document.getElementById('content');
+
+        // Function to create a paragraph
+        function createParagraph() {
+            const paragraph = document.createElement('p');
+            paragraph.textContent = "This is a dynamically created paragraph.";
+            parentNode.appendChild(paragraph); // Add the paragraph to the parent node
+        }
+
+        // Function to create new links with Google and Yahoo
+        function createLinks() {
+            const navElement = document.createElement('nav');
+
+            const googleLink = document.createElement('a');
+            googleLink.href = "https://www.google.com";
+            googleLink.textContent = "Google";
+            googleLink.target = "_blank";
+
+            const yahooLink = document.createElement('a');
+            yahooLink.href = "https://www.yahoo.com";
+            yahooLink.textContent = "Yahoo";
+            yahooLink.target = "_blank";
+
+            navElement.appendChild(googleLink);
+            navElement.appendChild(document.createTextNode(" | ")); // Adds a separator
+            navElement.appendChild(yahooLink);
+
+            parentNode.appendChild(navElement); // Add the nav element to the parent node
+        }
+
+        // Function to create a paragraph with a <strong> element
+        function createStrong() {
+            const paragraph = document.createElement('p');
+            const strongElement = document.createElement('strong');
+            const textNode = document.createTextNode("This is strong tag text.");
+            strongElement.appendChild(textNode); // Add the text node to the strong element
+            paragraph.appendChild(strongElement); // Add the strong element to the paragraph
+            parentNode.appendChild(paragraph); // Add the paragraph to the parent node
+        }
+    </script>
+</body>
+</html>

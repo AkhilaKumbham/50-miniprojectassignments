@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Element to String</title>
+</head>
+<body>
+    <p>Enter array elements separated by commas to see them combined into a single string.</p>
+    <script>
+        let inputValue = prompt("Enter array elements separated by commas:");
+
+        if (!inputValue || inputValue.trim().length === 0) {
+            document.write("No valid input provided. Please refresh and enter strings.");
+        } else {
+            let joinedString = inputValue.split(",").map(str => str.trim()).join(" ");
+            document.write(`<strong>Combined String:</strong> ${joinedString}`);
+        }
+    </script>
+</body>
+</html>

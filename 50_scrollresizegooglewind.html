@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM Window Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>BOM Window Operations</h1>
+    <button onclick="createWindow()">Create Google Search Window</button>
+    <button onclick="resizeWindow()">Resize Window</button>
+    <button onclick="scrollWindow()">Scroll Window</button>
+    <button onclick="moveWindow()">Move Window</button>
+
+    <script>
+        let newWindow;
+
+        // a) Create a new Google search window
+        function createWindow() {
+            newWindow = window.open('https://www.google.com', '_blank', 'width=800,height=600');
+            if (!newWindow) {
+                alert('Pop-up blocked! Please allow pop-ups for this site.');
+            }
+        }
+
+        // b) Resize the new window
+        function resizeWindow() {
+            if (newWindow && !newWindow.closed) {
+                newWindow.resizeTo(400, 300);
+            } else {
+                alert('The window is not open!');
+            }
+        }
+
+        // c) Scroll the new window 10 pixels to the right
+        function scrollWindow() {
+            if (newWindow && !newWindow.closed) {
+                newWindow.scrollBy(10, 0); // Scroll 10 pixels to the right
+            } else {
+                alert('The window is not open!');
+            }
+        }
+
+        // d) Move the new window relative to its current position
+        function moveWindow() {
+            if (newWindow && !newWindow.closed) {
+                newWindow.moveBy(50, 50); // Move the window 50px right and 50px down
+            } else {
+                alert('The window is not open!');
+            }
+        }
+    </script>
+</body>
+</html>

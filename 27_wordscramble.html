@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function scrambleWordDynamic() {
+    const inputString = prompt("Enter the string to scramble:");
+    if (!inputString || inputString.trim() === "") {
+       document.write("Invalid input! Please provide a non-empty string.");
+        return;
+    }
+    const positionArrayInput = prompt("Enter the position array (comma-separated):");
+    const positionArray = positionArrayInput.split(',').map(Number);
+    if (positionArray.some(isNaN) || positionArray.length !== inputString.length) {
+       document.write("Invalid position array! Ensure it has the correct number of indices.");
+        return;
+    }
+    let scrambledWord = [];
+    for (let i = 0; i < positionArray.length; i++) {
+        if (positionArray[i] < 0 || positionArray[i] >= inputString.length) {
+           document.write("Invalid index in position array! Ensure indices are within the valid range.");
+            return;
+        }
+        scrambledWord[i] = inputString[positionArray[i]];
+    }
+   document.write("Scrambled Word:", scrambledWord.join(''));
+}
+scrambleWordDynamic();
+
+
+    </script>
+</body>
+</html>

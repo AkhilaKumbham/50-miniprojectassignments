@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random pin</title>
+</head>
+<body>
+    <script>
+    function generate(length) {
+        if (length <= 0 || isNaN(length)) {
+            return "Invalid length. Please enter a positive number.";
+        }
+    
+        let pin = "";
+        while (pin.length < length) {
+            let randomDigit = Math.floor(Math.random() * 10);
+            if (!pin.includes(randomDigit.toString())) {
+                pin += randomDigit;
+            }
+        }
+        return pin;
+    }
+    
+    
+    let pLength = parseInt(prompt("Enter the length of the unique PIN number:"));
+    if (!isNaN(pLength) && pLength > 0) {
+        let uniquePIN = generate(pLength);
+        document.write(uniquePIN);
+    } else {
+        document.write("Please enter a valid positive integer for the PIN length.");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Paragraph Styles</title>
+    <style>
+        /* Unique CSS styles for each paragraph */
+        .para1 {
+            font-size: 18px;
+            color: #4CAF50;
+            background-color: #f0f8ff;
+            padding: 10px;
+            border: 1px solid #4CAF50;
+            margin: 5px 0;
+        }
+
+        .para2 {
+            font-size: 20px;
+            color: #ff6347;
+            background-color: #fff0f5;
+            padding: 10px;
+            border: 1px solid #ff6347;
+            margin: 5px 0;
+        }
+
+        .para3 {
+            font-size: 22px;
+            color: #4682b4;
+            background-color: #e0ffff;
+            padding: 10px;
+            border: 1px solid #4682b4;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Three paragraphs with different class names -->
+    <p class="para1">This is the first paragraph with class 'para1'.</p>
+    <p class="para2">This is the second paragraph with class 'para2'.</p>
+    <p class="para3">This is the third paragraph with class 'para3'.</p>
+
+    <button onclick="changeStyle()">Change Styles</button>
+
+    <script>
+        // Function to change the styles of the paragraphs dynamically
+        function changeStyle() {
+            // Manipulating styles for para1
+            const para1 = document.querySelector('.para1');
+            para1.style.fontSize = '24px';
+            para1.style.color = '#00008b';
+            para1.style.backgroundColor = '#ffebcd';
+            para1.style.padding = '15px';
+            para1.style.border = '2px solid #00008b';
+
+            // Manipulating styles for para2
+            const para2 = document.querySelector('.para2');
+            para2.style.fontSize = '26px';
+            para2.style.color = '#8b0000';
+            para2.style.backgroundColor = '#ffe4e1';
+            para2.style.padding = '15px';
+            para2.style.border = '2px solid #8b0000';
+
+            // Manipulating styles for para3
+            const para3 = document.querySelector('.para3');
+            para3.style.fontSize = '28px';
+            para3.style.color = '#2f4f4f';
+            para3.style.backgroundColor = '#f0fff0';
+            para3.style.padding = '15px';
+            para3.style.border = '2px solid #2f4f4f';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Island Perimeter</title>
+</head>
+<body>
+    <h1>Island Perimeter Calculator</h1>
+    <p>Enter a grid where each row is comma-separated and rows are separated by a semicolon (;).</p>
+    <script>
+        function calPerimeter(grid) {
+            let perimeter = 0;
+            for (let row = 0; row < grid.length; row++) {
+                for (let col = 0; col < grid[row].length; col++) {
+                    if (grid[row][col] === 1) {
+                        perimeter += 4;
+                        if (row > 0 && grid[row - 1][col] === 1) {
+                            perimeter -= 2;
+                        }
+                        if (col > 0 && grid[row][col - 1] === 1) {
+                            perimeter -= 2;
+                        }
+                    }
+                }
+            }
+            return perimeter;
+        }
+        const Input = prompt("Enter the grid: rows separated by semicolons, cells by commas\nExample: 0,1,0,0;1,1,1,0;0,1,0,0;1,1,0,0");
+        
+        if (Input) {
+            const grid = Input.split(";").map(row => row.split(",").map(Number));
+            const isValGrid = grid.every(row => row.every(cell => cell === 0 || cell === 1));
+            if (!isValGrid) {
+                document.write("<p>Error: Grid should contain only 0s and 1s.</p>");
+            } else {
+                const perimeter = calPerimeter(grid);
+                document.write("<pre>" + JSON.stringify(grid, null, 2) + "</pre>");
+                document.write(`${perimeter}</p>`);
+            }
+        } else {
+            document.write("<p>Error: No input provided.</p>");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perimeter of rectangle</title>
+</head>
+<body>
+    <script>
+        let rectangle = {
+    width: parseFloat(prompt("Enter the width of the rectangle:")),
+    height: parseFloat(prompt("Enter the height of the rectangle:")),
+    calculateArea: function () {
+        return this.width * this.height;
+    },
+    calculatePerimeter: function () {
+        return 2 * (this.width + this.height);
+    }
+};
+
+document.write(`Width: ${rectangle.width}<br>`);
+document.write(`Height: ${rectangle.height}<br>`);
+document.write(`Area: ${rectangle.calculateArea()}<br>`);
+document.write(`Perimeter: ${rectangle.calculatePerimeter()}<br>`);
+
+    </script>
+</body>
+</html>

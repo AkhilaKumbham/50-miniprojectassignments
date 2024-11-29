@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gross salary calculation</title>
+</head>
+<body>
+    
+    <script>
+     let name=prompt("enter name");
+     let id=parseInt(prompt("enter id"));
+     let salary=parseFloat(prompt("enter salary"));
+     let ta=15/100*salary;
+     let da=35/100*salary;
+    let sal=salary+ta+da;
+     function grossSalary()
+      {
+        console.log("name:", `${name}`);
+        console.log("id",`${id}`);
+        console.log("salary",`${sal}`);
+      }
+      grossSalary();
+    </script>
+</body>
+</html>
+

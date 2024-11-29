@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trim </title>
+</head>
+<body>
+    <script>
+        function customTrim(inputString, trimCharacter) {
+    let pattern = new RegExp(trimCharacter, 'g');
+    return inputString.replace(pattern, '');  //to trim space enter space button
+}
+
+let userInput = prompt("Enter a string:");
+let trimInput = prompt("Enter the character or space to trim:");
+let trimmedResult = customTrim(userInput, trimInput);
+document.write(trimmedResult);
+    </script>
+</body>
+</html>

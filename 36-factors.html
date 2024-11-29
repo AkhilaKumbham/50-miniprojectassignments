@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>factors</title>
+</head>
+<body>
+   <script>
+    function findFactorsOfNumber(inputNumber) {
+    let factors = [];
+    for (let i = 1; i <= inputNumber; i++) {
+        if (inputNumber % i === 0) {
+            factors.push(i);
+        }
+    }
+    return factors;
+}
+
+let userInputNumber = parseInt(prompt("Enter a positive integer:"), 10);
+if (userInputNumber > 0) {
+    let factors = findFactorsOfNumber(userInputNumber);
+    document.write(`Factors of ${userInputNumber} are: ${factors.join(",")}`);
+} else {
+    document.write("Please enter a positive integer.");
+}
+
+   </script> 
+</body>
+</html>

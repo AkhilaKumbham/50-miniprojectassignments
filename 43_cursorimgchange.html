@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Hover</title>
+    <style>
+        #image {
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <img id="image" src="https://orig09.deviantart.net/6eda/f/2008/350/d/e/girl_toon_link_by_dc9spot.jpg" alt="Default Image" onmouseover="changeImage()" onmouseout="resetImage()">
+
+    <script>
+        function changeImage() {
+            document.getElementById('image').src = 'https://64.media.tumblr.com/73b7207e557ec4f9520e439025931d13/tumblr_osie3gKrZl1r94argo1_1280.jpg';
+        }
+
+        function resetImage() {
+            document.getElementById('image').src = 'https://orig09.deviantart.net/6eda/f/2008/350/d/e/girl_toon_link_by_dc9spot.jpg';
+        }
+    </script>
+</body>
+</html>

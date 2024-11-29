@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time display day time</title>
+</head>
+<body>
+    <script>
+        let time=prompt("enter time").trim();
+        let period=prompt("enter period am or pm").trim().toUpperCase();
+        if (isNaN(time) || time < 1 || time > 24 || (period !== "AM" && period !== "PM")) {
+           document.write("Invalid input");
+        }
+        else if(period=="AM" && time>=1 && time<=12) 
+        {
+            document.write("Good Morning!");
+        }
+        else if(period=="PM")
+        {
+            if(time>=12 && time<16){
+            document.write("Good Noon!");
+            }
+            else if(time>=16 && time<19){
+                document.write("Good Evening!");
+            }
+            else{
+                document.write("Good Night!");
+            }
+        }
+
+    </script>
+</body>
+</html>

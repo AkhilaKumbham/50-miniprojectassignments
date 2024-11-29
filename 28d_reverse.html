@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse String</title>
+</head>
+<body>
+    <script>
+    function reverseInputString() {
+        const userInputText = prompt("Enter a string:");
+        if (!userInputText || userInputText.trim() === "") {
+            document.write("Invalid input! Please enter a non-empty string.");
+            return;
+        }
+        const reversedText = userInputText.split("").reverse().join("");
+        document.write(reversedText);
+    }
+    reverseInputString();
+    </script>   
+</body>
+</html>

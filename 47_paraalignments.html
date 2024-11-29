@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph Alignment</title>
+    <style>
+        p {
+            font-size: 18px;
+            margin: 10px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Paragraph Alignment</h1>
+
+    <!-- Three unique paragraphs with information about JavaScript -->
+    <p>This is the first paragraph. JavaScript is a versatile programming language primarily used for web development.</p>
+    <p>This is the second paragraph. It enables dynamic content on webpages, such as interactive forms, animations, and much more.</p>
+    <p>This is the third paragraph. JavaScript works seamlessly with HTML and CSS to create modern, interactive websites and applications.</p>
+
+    <!-- Buttons to change alignment -->
+    <button onclick="alignLeft()">Align Left</button>
+    <button onclick="alignRight()">Align Right</button>
+    <button onclick="alignCenter()">Align Center</button>
+
+    <script>
+        // Function to align paragraphs to the left
+        function alignLeft() {
+            const paragraphs = document.getElementsByTagName('p');
+            for (let i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].style.textAlign = 'left';
+            }
+        }
+
+        // Function to align paragraphs to the right
+        function alignRight() {
+            const paragraphs = document.getElementsByTagName('p');
+            for (let i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].style.textAlign = 'right';
+            }
+        }
+
+        // Function to align paragraphs to the center
+        function alignCenter() {
+            const paragraphs = document.getElementsByTagName('p');
+            for (let i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].style.textAlign = 'center';
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Paragraph Style</title>
+    <style>
+        #myParagraph {
+            padding: 20px;
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <p id="myParagraph">This is a sample paragraph. Click the buttons to modify its style!</p>
+
+    <button onclick="changeParaText()">Change Font</button>
+    <button onclick="addBorder()">Add Border</button>
+
+    <script>
+        function changeParaText() {
+            const paragraph = document.getElementById('myParagraph');
+            paragraph.style.color = 'blue';
+            paragraph.style.fontSize = '24px';
+            paragraph.style.fontFamily = 'Verdana, sans-serif';
+            paragraph.style.fontWeight = 'bold';
+        }
+
+        function addBorder() {
+            const paragraph = document.getElementById('myParagraph');
+            paragraph.style.border = '5px dashed blue';
+        }
+    </script>
+</body>
+</html>

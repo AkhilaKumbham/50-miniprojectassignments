@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ascending and Descending Array</title>
+</head>
+<body>
+    <h1>Sort Array in Ascending and Descending Order</h1>
+    <p>Enter a comma-separated array of numbers to see it sorted in ascending and descending order.</p>
+    <script>
+        function ascendArray(numbers) {
+            return numbers.slice().sort((a, b) => a - b); 
+        }
+        function descendArray(numbers) {
+            return numbers.slice().sort((a, b) => b - a);
+        }
+        let inputNumbers = prompt("Enter a comma-separated array of numbers:");
+
+        if (!inputNumbers || inputNumbers.trim().length === 0) {
+            document.write("Error: Please enter valid comma-separated numbers.");
+        } 
+        else {
+            let numbers = inputNumbers.split(',').map(Number);
+            if (numbers.some(isNaN)) {
+                document.write("Error: Please enter valid numbers only.");
+            } 
+            else {
+                let ascending = ascendArray(numbers);
+                let descending = descendArray(numbers);
+                document.write(`<p>ascending Order:[${ascending.join(", ")}]</p>`);
+                document.write(`<p>descending Order: [${descending.join(", ")}]</p>`);
+            }
+        }
+    </script>
+</body>
+</html>

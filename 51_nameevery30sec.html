@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Name Every 30 Seconds</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <p id="nameDisplay">Your name will appear here every 30 seconds.</p>
+
+    <script>
+        function displayName() {
+            const name = prompt("enter name"); // Replace with your name
+            const nameDisplay = document.getElementById('nameDisplay');
+            nameDisplay.textContent = `Hello, ${name}!`;
+        }
+
+        // Display the name every 30 seconds
+        setInterval(displayName, 30000);
+
+        // Display the name immediately on page load
+        displayName();
+    </script>
+</body>
+</html>

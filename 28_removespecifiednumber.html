@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Specified</title>
+</head>
+<body>
+    <script>
+    function removeCharactersDynamic() {
+        const inputString = prompt("Enter the string:");
+        if (!inputString || inputString.trim() === "") {
+            document.write("Invalid input! Please provide a non-empty string.");
+            return;
+        }
+        const removalPosition = parseInt(prompt("Enter the starting position (0-based index):"), 10);
+        if (isNaN(removalPosition) || removalPosition < 0 || removalPosition >= inputString.length) {
+            document.write("Invalid position! Ensure the position is within the range of the string.");
+            return;
+        }
+        const numberOfCharacters = parseInt(prompt("Enter the number of characters to remove:"), 10);
+        if (isNaN(numberOfCharacters) || numberOfCharacters < 0) {
+            document.write("Invalid number of characters! Please provide a valid positive integer.");
+            return;
+        }
+        const updatedString = inputString.slice(0, removalPosition) + inputString.slice(removalPosition + numberOfCharacters);
+        document.write("Updated String: " + updatedString);
+    }
+    removeCharactersDynamic();
+    </script>   
+</body>
+</html>

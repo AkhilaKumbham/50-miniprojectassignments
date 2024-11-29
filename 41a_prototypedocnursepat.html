@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototypee pass obj to another</title>
+</head>
+<body>
+    <script>
+        function Specialist(name, experience) {
+    this.name = name;
+    this.experience = experience;
+}
+
+function Assistant(assistantName, assistantExperience) {
+    this.assistantName = assistantName;
+    this.assistantExperience = assistantExperience;
+}
+
+Assistant.prototype = new Specialist();
+Assistant.prototype.patient = "";
+
+let specialistObj = new Specialist(
+    prompt("Enter the Specialist's Name:"),
+    prompt("Enter the Specialist's Experience:")
+);
+
+let assistantObj = new Assistant(
+    prompt("Enter the Assistant's Name:"),
+    prompt("Enter the Assistant's Experience:")
+);
+
+assistantObj.patient = prompt("Enter the Patient's Name:");
+
+document.write("SpecialistName: " + assistantObj.name + "<br>");
+document.write("SpecialistExperience: " + assistantObj.experience + "<br>");
+document.write("AssistantName: " + assistantObj.assistantName + "<br>");
+document.write("AssistantExperience: " + assistantObj.assistantExperience + "<br>");
+document.write("PatientName: " + assistantObj.patient);
+
+    </script>
+</body>
+</html>

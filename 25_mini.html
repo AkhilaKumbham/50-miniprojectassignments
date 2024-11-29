@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Minimums</title>
+</head>
+<body>
+    <p>Enter a positive integer `n` and an array of `2 * n` numbers to compute the sum of minimums of pairs.</p>
+    <script>
+        function sumOfMin(n, arr) {
+            let sum = 0;
+            for (let i = 0; i < n; i++) {
+                sum += Math.min(arr[2 * i], arr[2 * i + 1]);
+            }
+            return sum;
+        }
+        let n = parseInt(prompt("Enter a positive integer n:"));
+        let arr = prompt(`Enter an array of ${2 * n} numbers (comma-separated):`)
+            .split(",")
+            .map(Number);
+        if (isNaN(n) || n <= 0) {
+            document.write("<p>Error: Please enter a valid positive integer for n.</p>");
+        } else if (arr.length !== 2 * n || arr.some(isNaN)) {
+            document.write("<p>Error: Please enter a valid array of numbers with length 2 * n.</p>");
+        } else {
+            let result = sumOfMin(n, arr);
+            document.write(`<p>[${arr.join(", ")}]</p>`);
+            document.write(`<p>Sum of min(ai, bi) = ${result}</p>`);
+        }
+    </script>
+</body>
+</html>

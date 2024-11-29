@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Validation</title>
+</head>
+<body>
+    <h2>Check String for Alphanumeric, Dash, and Underscore</h2>
+    <label for="inputString">Enter a String:</label>
+    <input type="text" id="inputString" placeholder="Enter your string here">
+    <button onclick="validateString()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        function validateString() {
+            const input = document.getElementById('inputString').value;
+            const result = document.getElementById('result');
+
+            // Patterns to test specific characters
+            const hasAlphanumeric = /[a-zA-Z0-9]/.test(input);
+            const hasDash = /-/.test(input);
+            const hasUnderscore = /_/.test(input);
+
+            // Build the result message
+            let message = "The string contains: ";
+            let containsSomething = false;
+
+            if (hasAlphanumeric) {
+                message += "alphanumeric characters";
+                containsSomething = true;
+            }
+            if (hasDash) {
+                message += containsSomething ? ", dash" : "dash";
+                containsSomething = true;
+            }
+            if (hasUnderscore) {
+                message += containsSomething ? ", underscore" : "underscore";
+            }
+
+            // Finalize the output
+            if (!hasAlphanumeric && !hasDash && !hasUnderscore) {
+                result.innerHTML = "❌ The string does not contain alphanumeric characters, dashes, or underscores.";
+                result.style.color = "red";
+            } else {
+                result.innerHTML = `✅ ${message}.`;
+                result.style.color = "green";
+            }
+        }
+    </script>
+</body>
+</html>

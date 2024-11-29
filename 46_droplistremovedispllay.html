@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown List Manipulation</title>
+    <style>
+        select {
+            width: 200px;
+            height: 100px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dropdown List Manipulation</h1>
+
+    <!-- Dropdown list with some items -->
+    <select id="stateList">
+        <option value="California">Hyderabad</option>
+        <option value="Texas">Banglore</option>
+        <option value="Florida">Chennai</option>
+        <option value="New York">Mumbai</option>
+        <option value="Washington">Delhi</option>
+    </select>
+
+    <br><br>
+
+    <!-- Buttons to trigger functions -->
+    <button onclick="countItems()">Count Items</button>
+    <button onclick="removeItem()">Remove Item</button>
+
+    <script>
+        // Function to count and display the number of items in the dropdown list
+        function countItems() {
+            // Get the dropdown list element
+            const selectElement = document.getElementById('stateList');
+
+            // Get the number of options in the dropdown list
+            const itemCount = selectElement.options.length;
+
+            // Display the number of items in an alert
+            alert('Number of items in the list: ' + itemCount);
+        }
+
+        // Function to remove the selected item from the dropdown list
+        function removeItem() {
+            // Get the dropdown list element
+            const selectElement = document.getElementById('stateList');
+
+            // Get the index of the selected option
+            const selectedIndex = selectElement.selectedIndex;
+
+            // Check if an item is selected
+            if (selectedIndex >= 0) {
+                // Remove the selected item
+                selectElement.remove(selectedIndex);
+            } else {
+                // Alert if no item is selected
+                alert('Please select an item to remove.');
+            }
+        }
+    </script>
+
+</body>
+</html>

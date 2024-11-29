@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Positive and Negative Count</title>
+</head>
+<body>
+    <p>Enter 10 numbers separated by commas to calculate how many are positive and negative.</p>
+    <script>
+        function calculatePositiveAndNegativeCounts(inputArray) {
+            let positiveNumberCount = 0;
+            let negativeNumberCount = 0;
+            for (let index = 0; index < inputArray.length; index++) {
+                if (inputArray[index] > 0) {
+                    positiveNumberCount++;
+                } else if (inputArray[index] < 0) {
+                    negativeNumberCount++;
+                }
+            }
+            console.log(`Positive Numbers: ${positiveNumberCount}`);
+            console.log(`Negative Numbers: ${negativeNumberCount}`);
+            alert(`Positive Numbers: ${positiveNumberCount}\nNegative Numbers: ${negativeNumberCount}`);
+        }
+        const userInputNumbers = prompt("Enter 10 numbers separated by commas:");
+        if (userInputNumbers) {
+            const parsedNumberArray = userInputNumbers.split(",").map(Number);
+            if (parsedNumberArray.length !== 10) {
+                console.log("Error: Please enter exactly 10 numbers.");
+                alert("Error: Please enter exactly 10 numbers.");
+            } else if (parsedNumberArray.some(isNaN)) {
+                console.log("Error: Please enter only valid numbers.");
+                alert("Error: Please enter only valid numbers.");
+            } else {
+                calculatePositiveAndNegativeCounts(parsedNumberArray);
+            }
+        } else {
+            console.log("No input provided.");
+            alert("No input provided.");
+        }
+    </script>
+</body>
+</html>

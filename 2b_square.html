@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mathematical cal</title>
+</head>
+<body>
+    <script>
+        let sideA = parseFloat(prompt("Enter the first side of the triangle:"));
+        let sideB = parseFloat(prompt("Enter the second side of the triangle:"));
+        let sideC = parseFloat(prompt("Enter the third side of the triangle:"));
+
+        let semiPerimeter = (sideA + sideB + sideC) / 2;
+        let area = Math.sqrt(
+            semiPerimeter *
+            (semiPerimeter - sideA) *
+            (semiPerimeter - sideB) *
+            (semiPerimeter - sideC)
+        );
+      document.write(area.toFixed(2));
+    </script>
+</body>
+</html>

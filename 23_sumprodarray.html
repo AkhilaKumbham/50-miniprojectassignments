@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum and Product of Array</title>
+</head>
+<body>
+    <p>Enter a comma-separated array of numbers to calculate their sum and product.</p>
+    <script>
+        function sumOfValues(inputNumbers) {
+            let sum = 0;
+            for (let i = 0; i < inputNumbers.length; i++) {
+                sum += inputNumbers[i];
+            }
+            return sum;
+        }
+        function productOfValues(inputNumbers) {
+            let product = 1;
+            for (let i = 0; i < inputNumbers.length; i++) {
+                product *= inputNumbers[i];
+            }
+            return product;
+        }
+        let inputNumbers = prompt("Enter a comma-separated array of numbers:")
+            .split(",")
+            .map(Number);
+
+        if (inputNumbers.some(isNaN)) {
+            document.write("Error: Please enter a valid array of numbers.");
+        } else if (inputNumbers.length === 0) {
+            document.write("Error: No input provided. Please enter numbers.");
+        } else {
+            let sum = sumOfValues(inputNumbers);
+            let product = productOfValues(inputNumbers);
+            document.write(`<p><strong>Sum:</strong> ${sum}</p>`);
+            document.write(`<p><strong>Product:</strong> ${product}</p>`);
+        }
+    </script>
+</body>
+</html>

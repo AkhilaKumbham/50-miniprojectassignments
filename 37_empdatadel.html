@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emp data add,del</title>
+</head>
+<body>
+    <script>
+        function processEmployeeObject(empObj) {
+        Object.keys(empObj).forEach(key => document.write(`${key}: ${empObj[key]}`));
+    let objLength = Object.keys(empObj).length;
+    document.write(`Length of the Employee object: ${objLength}`);
+    delete empObj.deptName;
+    document.write("After deleting 'deptName' property:");
+    document.write(empObj);
+}
+let employeeObject = {
+    EmpName: prompt("Enter Employee Name:"),
+    EmpId: parseInt(prompt("Enter Employee ID:")),
+    EmpSalary: parseFloat(prompt("Enter Employee Salary:")),
+    deptName: prompt("Enter Department Name:")
+};
+
+processEmployeeObject(employeeObject);
+
+    </script>
+</body>
+</html>

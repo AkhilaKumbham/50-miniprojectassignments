@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First letter uppercase</title>
+</head>
+<body>
+    <script>
+        function capitalizeFirstLetter(inputString) {
+    let words = inputString.split(' ');
+    let capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    return capitalizedWords.join(' ');
+}
+
+let userInput = prompt("Enter a string:");
+let result = capitalizeFirstLetter(userInput);
+document.write(result);
+
+    </script>
+</body>
+</html>

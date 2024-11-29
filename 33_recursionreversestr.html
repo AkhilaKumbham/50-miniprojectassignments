@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reverse of string recursion</title>
+</head>
+<body>
+    <script>
+        function reverseStringRecursive(inputString) {
+    if (inputString === "") {
+        return "";
+    }
+    return inputString.slice(-1) + reverseStringRecursive(inputString.slice(0, -1));
+}
+
+let userInputString = prompt("Enter a string:");
+let reversedString = reverseStringRecursive(userInputString);
+document.write(reversedString);
+
+    </script>
+</body>
+</html>
