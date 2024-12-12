@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nim Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            padding: 8px;
+            width: 60%;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nim Game</h1>
+        <p>Enter the number of stones to start the game:</p>
+        <input type="number" id="stones" placeholder="Number of stones">
+        <button onclick="startGame()">Start Game</button>
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        function nimGame(stones) {
+            if (stones <= 0) {
+                return "Invalid number of stones.";
+            }
+
+            if (stones === 4) {
+                return "Your friend won the game";
+            }
+
+            let currentPlayer = "You";
+            let result = "";
+
+            while (stones > 0) {
+                let stonesToRemove;
+
+                if (stones % 4 === 0) {
+                    stonesToRemove = 1;
+                } else {
+                    stonesToRemove = stones % 4;
+                }
+
+                stones -= stonesToRemove;
+
+                result += `${currentPlayer} removed ${stonesToRemove} stone(s). ${stones} stone(s) left.<br>`;
+
+                if (stones === 0) {
+                    result += `${currentPlayer} won the game`;
+                    break;
+                }
+
+                currentPlayer = currentPlayer === "You" ? "Your friend" : "You";
+            }
+
+            return result;
+        }
+
+        function startGame() {
+            const stones = parseInt(document.getElementById('stones').value);
+            const outputDiv = document.getElementById('output');
+
+            if (isNaN(stones) || stones <= 0) {
+                outputDiv.innerHTML = "Please enter a valid number of stones.";
+                return;
+            }
+
+            const result = nimGame(stones);
+            outputDiv.innerHTML = result;
+        }
+    </script>
+</body>
+</html>

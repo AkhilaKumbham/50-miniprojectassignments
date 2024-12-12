@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Tracker</title>
+</head>
+<body>
+    <h1>Welcome to Our Page!</h1>
+    <img src="https://images.pexels.com/photos/28824299/pexels-photo-28824299/free-photo-of-serene-blurred-ocean-at-twilight.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Placeholder Image" style="width: 700px;height: 700px;">
+    <h2 id="welcomeMessage"></h2>
+    <br>
+    <p id="visitDetails"></p>
+
+    <script>
+        function setCookie(cookieName, cookieValue, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = `${cookieName}=${cookieValue}; ${expires}; path=/`;
+        }
+
+        function getCookie(cookieName) {
+            const name = cookieName + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const cookieArray = decodedCookie.split(';');
+            for (let cookie of cookieArray) {
+                while (cookie.charAt(0) === ' ') {
+                    cookie = cookie.substring(1);
+                }
+                if (cookie.indexOf(name) === 0) {
+                    return cookie.substring(name.length, cookie.length);
+                }
+            }
+            return null;
+        }
+
+        function displayVisitDetails() {
+            const userName = prompt("Please enter your name:");
+            const visitCountKey = `visitCount_${userName}`;
+            const lastVisitKey = `lastVisit_${userName}`;
+            let visitCount = getCookie(visitCountKey);
+            const lastVisit = getCookie(lastVisitKey);
+            const welcomeMessage = document.getElementById("welcomeMessage");
+            const visitDetails = document.getElementById("visitDetails");
+
+            if (visitCount) {
+                visitCount = parseInt(visitCount) + 1;
+                welcomeMessage.textContent = `Welcome back, ${userName}!`;
+                visitDetails.textContent = `You have visited this page ${visitCount} times. Your last visit was on ${lastVisit}.`;
+            } else {
+                visitCount = 1;
+                welcomeMessage.textContent = `Welcome, ${userName}!`;
+                visitDetails.textContent = `You have never visited before.`;
+            }
+
+            setCookie(visitCountKey, visitCount, 365);
+            const currentDate = new Date().toLocaleString();
+            setCookie(lastVisitKey, currentDate, 365);
+        }
+
+        displayVisitDetails();
+    </script>
+</body>
+</html>

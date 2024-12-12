@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Example</title>
+</head>
+<body>
+    <h1>Person Details</h1>
+    <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" placeholder="Enter first name">
+    </div>
+    <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" placeholder="Enter age">
+    </div>
+    <div>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" placeholder="Enter phone number">
+    </div>
+    <div>
+        <label for="motherName">Mother's Name:</label>
+        <input type="text" id="motherName" placeholder="Enter mother's name">
+    </div>
+    <div>
+        <label for="fatherName">Father's Name:</label>
+        <input type="text" id="fatherName" placeholder="Enter father's name">
+    </div>
+    <button onclick="displayPersonDetails()">Submit</button>
+
+    <h2>Output:</h2>
+    <div id="output"></div>
+
+    <script>
+        class Person {
+            constructor(firstName, age, phoneNumber) {
+                this.firstName = firstName;
+                this.age = age;
+                this.phoneNumber = phoneNumber;
+            }
+        }
+        Person.prototype.lastName = "A H";
+        Person.prototype.getParentsDetails = function (mother, father) {
+            return {
+                motherName: mother,
+                fatherName: father,
+            };
+        };
+
+        function displayPersonDetails() {
+            const firstName = document.getElementById("firstName").value;
+            const age = document.getElementById("age").value;
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            const motherName = document.getElementById("motherName").value;
+            const fatherName = document.getElementById("fatherName").value;
+            const person = new Person(firstName, age, phoneNumber);
+            const parentsDetails = person.getParentsDetails(motherName, fatherName);
+            const outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = `
+                <p>First Name: ${person.firstName}</p>
+                <p>Last Name: ${person.lastName}</p>
+                <p>Age: ${person.age}</p>
+                <p>Phone Number: ${person.phoneNumber}</p>
+                <p>Mother's Name: ${parentsDetails.motherName}</p>
+                <p>Father's Name: ${parentsDetails.fatherName}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

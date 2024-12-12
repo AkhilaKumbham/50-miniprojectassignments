@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nim Game</title>
+</head>
+<body>
+    <h1>Nim Game</h1>
+    <div>
+        <label for="stoneInput">Enter the number of stones:</label>
+        <input type="number" id="stoneInput" placeholder="Enter total stones">
+    </div>
+    <button onclick="startNimGame()">Start Game</button>
+
+    <h2>Result:</h2>
+    <div id="gameResult"></div>
+
+    <script>
+        function startNimGame() {
+            let totalStones = parseInt(document.getElementById("stoneInput").value, 10);
+            let currentPlayer = "You";
+            let gameOutput = document.getElementById("gameResult");
+
+            while (totalStones > 0) {
+                let stonesToRemove;
+
+                if (currentPlayer === "You") {
+                    stonesToRemove = Math.min(3, totalStones);
+                } else {
+                    stonesToRemove = totalStones % 4 === 0 ? 1 : totalStones % 4;
+                }
+
+                totalStones -= stonesToRemove;
+
+                if (totalStones === 0) {
+                    gameOutput.textContent = `${currentPlayer} won the game`;
+                    return;
+                }
+
+                currentPlayer = currentPlayer === "You" ? "Your friend" : "You";
+            }
+        }
+    </script>
+</body>
+</html>
